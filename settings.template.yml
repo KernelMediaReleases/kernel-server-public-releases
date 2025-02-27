@@ -1,0 +1,78 @@
+# Server Config
+server:
+  host: "localhost"
+  port: "9014"
+  # Generate a key via (openssl rand -base64 32) or (openssl rand -base64 64)
+  sessionkey: ""
+  # Server Timezone. Example America/Chicago, America/Los_Angeles, America/New_York
+  timezone: "America/Chicago"
+  # Location of the log file
+  log_location: "log/"
+  # What time of day to refresh guide data. HH:MM format 0-23 for hours. Example 00:00 for midnight or 23:59 for 11:59pm
+  refresh_time: "00:00"
+  # Refresh Live TV M3U and EPG on startup
+  refresh_livetv_on_startup: true
+  # ### CURRENTLY UNSTABLE ### Watch for library files.
+  watch_libraries: false
+
+# Database Config
+database:
+  # Types: sqlite, mysql, postgres, mssql
+  type: "sqlite"
+  sqlite:
+    location: "data/kernel.db"
+  mysql:
+    user: ""
+    pass: ""
+    host: ""
+    port: ""
+    name: ""
+  postgres:
+    user: ""
+    pass: ""
+    host: ""
+    port: ""
+    name: ""
+    sslmode: "disable"
+    timezone: "America/Chicago"
+  mssql:
+    user: ""
+    pass: ""
+    host: ""
+    port: ""
+    name: ""
+
+# Cache Config (Redis only)
+cache:
+  # Install Redis before using https://redis.io/docs/getting-started/
+  enabled: false
+  # Host can generally be left blank if using localhost
+  host: ""
+  port: "6379"
+
+# M3U & EPG Config
+m3u:
+  url: ""
+epg:
+  url: ""
+
+# Proxy Config
+proxy:
+  enabled: false
+  url: ""
+
+# URL for Sonarr/Radarr should be in this format http://localhost:7878
+# Sonarr Config
+sonarr:
+  url: ""
+  api_key: ""
+
+# Radarr Config
+radarr:
+  url: ""
+  api_key: ""
+
+# Hardware Acceleration Config
+hardware_acceleration:
+  # Hardware acceleration type. Options: nvenc, vaapi, qsv
+  nvenc: false
