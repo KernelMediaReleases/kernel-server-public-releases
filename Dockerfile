@@ -1,19 +1,4 @@
-# Build stage
-FROM golang:1.23.4 AS builder
-
-WORKDIR /app
-
-# Copy go mod files
-COPY go.mod go.sum ./
-RUN go mod download
-
-# Copy source code
-COPY . .
-
-# Build the application
-RUN CGO_ENABLED=1 go build -trimpath -o kernel-server .
-
-# Final stage
+# Use Ubuntu as base image
 FROM ubuntu:24.04
 
 # Install required dependencies
@@ -25,9 +10,12 @@ RUN apt-get update && \
 
 WORKDIR /app
 
-# Copy the binary from builder
-COPY --from=builder /app/kernel-server /app/
+# Copy the pre-compiled binary and settings template
+COPY kernel-0.7.14-linux-amd64 /app/kernel-server
 COPY settings.template.yml /app/settings.yml
+
+# Make the binary executable
+RUN chmod +x /app/kernel-server
 
 # Create necessary directories
 RUN mkdir -p /app/data /app/log
