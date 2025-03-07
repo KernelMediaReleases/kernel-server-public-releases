@@ -18,7 +18,7 @@
 - Kernel settings are still in a file. These will move to the database soon along with a setup wizard
 
 ## Roku Install
-> Current version is `0.7.21`
+> Current version is `0.7.22`
 
 Please use this link to install our Beta Channel. Please note that Roku Beta channels do have a shelf life of 6 months. You will need to reinstall the beta channel every 6 months or so until we release to the store.
 

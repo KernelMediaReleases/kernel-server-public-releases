@@ -11,7 +11,7 @@ RUN apt-get update && \
 WORKDIR /app
 
 # Copy the pre-compiled binary and settings template
-COPY kernel-0.7.14-linux-amd64 /app/kernel-server
+COPY kernel-*-linux-amd64 /app/kernel-server
 COPY settings.template.yml /app/settings.yml
 
 # Make the binary executable
