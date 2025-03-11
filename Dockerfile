@@ -1,5 +1,4 @@
-# Use Ubuntu as base image
-FROM ubuntu:24.04
+FROM jrottenberg/ffmpeg:7.1-nvidia2404
 
 # Install required dependencies
 RUN apt-get update && \
